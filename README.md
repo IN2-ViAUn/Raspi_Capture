@@ -18,12 +18,58 @@
 ## 部署方法
 - **前期准备：** 有一个已经烧录`ubuntu-22.04-preinstalled-desktop-arm64+raspi.img`的SD卡+树莓派4b，安装ros2、时间设置、SSH开启等，参考这一篇博客（我写的）：https://blog.csdn.net/weixin_61967846/article/details/139688989?spm=1001.2014.3001.5501
 - **代码部署：**
+1. 新建文件夹，并安装pip3
   ```
-    # 新建文件夹，-p为-parent意思，如果该路径下有父目录不存在，则一并创建父目录
     mkdir -p ~/ros2_ws/src
     cd ~/ros2_ws/src
+    sudo apt install -y python3-pip
+    sudo pip3 install rosdepc
+    sudo rosdepc init
+    rosdepc update
   ```
-
+2. 安装/更新依赖，安装colcon命令并编译
+  ```
+    cd ~/ros2_ws
+    rosdepc install -i --from-path src --rosdistro humble -y
+    sudo apt update
+    sudo apt upgrade
+    sudo apt install python3-colcon-ros
+    cd ~/ros2_ws
+    colcon build
+  ```
+3. 安装two_camera和sub_synch工作包，创建launch文件夹（否则会编译报错）
+  ```
+    cd ~/ros2_ws/src
+    ros2 pkg create two_camera --build-type ament_cmake --dependencies rclcpp --license Apache-2.0
+    ros2 pkg create sub_synch --build-type ament_cmake --dependencies rclcpp --license Apache-2.0
+    cd ~/ros2_ws/src/two_camera
+    mkdir launch
+    cd ~/ros2_ws/src/sub_synch
+    mkdir launch
+    cd ~/ros2_ws
+    colcon build
+  ```
+4. 将`appsink1~3.cpp`和`time_synch.cpp`代码迁移过来
+   - 在two_camera/src中执行`nano appsink1.cpp``nano appsink2.cpp``nano appsink3.cpp`等命令创建cpp文件，将已有代码复制到其中，注意修改：节点名称以及发布话题的名称，否则会与之前的树莓派重名导致程序卡死
+  ```
+    // 33行左右，在定义节点和话题的时候，将10003改为对应的端口。端口号建议与用户名后缀数字相同
+    auto node = rclcpp::Node::make_shared("camera1_10003_publisher");
+    auto publisher = node->create_publisher<sensor_msgs::msg::Image>("camera1_10003_image", 10);
+    // 125行左右也要修改
+    msg->header.frame_id = "camera1_10003_frame";
+  ```
+   - 在sub_synch/src中执行`nano time_synch.cpp`命令创建cpp文件，将已有代码复制到其中，注意修改：
+  ```
+    // 17行左右的树莓派通信端口
+    #define server_port 10003           // 本树莓派与服务器通信的端口
+    // 32行左右，修改订阅话题名称
+    this->declare_parameter("camera1_topic", "camera1_10003_image");
+    this->declare_parameter("camera2_topic", "camera2_10003_image");
+    this->declare_parameter("camera3_topic", "camera3_10003_image");
+    this->declare_parameter("stitched_image_topic", "stitched_10003_image");
+    // 36行左右，将保存路径中的用户名改为对应用户名，不是lamps-xe3
+    this->declare_parameter("save_directory", "/home/lamps-xe3/ros2_ws/image");
+  ```
 
 
 
