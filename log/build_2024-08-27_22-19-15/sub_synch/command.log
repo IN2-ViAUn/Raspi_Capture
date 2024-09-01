@@ -1,0 +1,6 @@
+Invoking command in '/home/lamps-xe3/ros2_ws/build/sub_synch': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/lamps-xe3/ros2_ws/src/sub_synch -DCMAKE_INSTALL_PREFIX=/home/lamps-xe3/ros2_ws/install/sub_synch
+Invoked command in '/home/lamps-xe3/ros2_ws/build/sub_synch' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/lamps-xe3/ros2_ws/src/sub_synch -DCMAKE_INSTALL_PREFIX=/home/lamps-xe3/ros2_ws/install/sub_synch
+Invoking command in '/home/lamps-xe3/ros2_ws/build/sub_synch': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/lamps-xe3/ros2_ws/build/sub_synch -- -j4 -l4
+Invoked command in '/home/lamps-xe3/ros2_ws/build/sub_synch' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/lamps-xe3/ros2_ws/build/sub_synch -- -j4 -l4
+Invoking command in '/home/lamps-xe3/ros2_ws/build/sub_synch': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/lamps-xe3/ros2_ws/build/sub_synch
+Invoked command in '/home/lamps-xe3/ros2_ws/build/sub_synch' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/lamps-xe3/ros2_ws/build/sub_synch

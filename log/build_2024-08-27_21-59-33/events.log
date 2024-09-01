@@ -1,0 +1,175 @@
+[0.000000] (-) TimerEvent: {}
+[0.001968] (two_camera) JobQueued: {'identifier': 'two_camera', 'dependencies': OrderedDict()}
+[0.002574] (two_camera) JobStarted: {'identifier': 'two_camera'}
+[0.037470] (two_camera) JobProgress: {'identifier': 'two_camera', 'progress': 'cmake'}
+[0.038588] (two_camera) Command: {'cmd': ['/usr/bin/cmake', '/home/lamps-xe3/ros2_ws/src/two_camera', '-DCMAKE_INSTALL_PREFIX=/home/lamps-xe3/ros2_ws/install/two_camera'], 'cwd': '/home/lamps-xe3/ros2_ws/build/two_camera', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'zh_CN:zh'), ('USER', 'lamps-xe3'), ('SSH_CLIENT', '192.168.1.110 54380 22'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/lamps-xe3/.vscode-server/cli/servers/Stable-fee1edb8d6d72a0ddff41e5f71a671c23ed924b9/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/lamps-xe3'), ('OLDPWD', '/home/lamps-xe3/ros2_ws/src/two_camera/src'), ('TERM_PROGRAM_VERSION', '1.92.2'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-3c527f2c-55fa-4a81-b773-ce69994e4ac9.sock'), ('ROS_PYTHON_VERSION', '3'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'lamps-xe3'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '202'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/lamps-xe3/.vscode-server/cli/servers/Stable-fee1edb8d6d72a0ddff41e5f71a671c23ed924b9/server/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'zh_CN.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/lamps-xe3/ros2_ws/build/two_camera'), ('SSH_CONNECTION', '192.168.1.110 54380 192.168.1.203 22'), ('XDG_DATA_DIRS', '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.099244] (-) TimerEvent: {}
+[0.200347] (-) TimerEvent: {}
+[0.301593] (-) TimerEvent: {}
+[0.402863] (-) TimerEvent: {}
+[0.504060] (-) TimerEvent: {}
+[0.605166] (-) TimerEvent: {}
+[0.706035] (-) TimerEvent: {}
+[0.806946] (-) TimerEvent: {}
+[0.908004] (-) TimerEvent: {}
+[1.009216] (-) TimerEvent: {}
+[1.110264] (-) TimerEvent: {}
+[1.211403] (-) TimerEvent: {}
+[1.312591] (-) TimerEvent: {}
+[1.413681] (-) TimerEvent: {}
+[1.514599] (-) TimerEvent: {}
+[1.615751] (-) TimerEvent: {}
+[1.716901] (-) TimerEvent: {}
+[1.818072] (-) TimerEvent: {}
+[1.919117] (-) TimerEvent: {}
+[2.020150] (-) TimerEvent: {}
+[2.121492] (-) TimerEvent: {}
+[2.222682] (-) TimerEvent: {}
+[2.301518] (two_camera) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[2.323068] (-) TimerEvent: {}
+[2.423987] (-) TimerEvent: {}
+[2.524812] (-) TimerEvent: {}
+[2.625966] (-) TimerEvent: {}
+[2.727138] (-) TimerEvent: {}
+[2.828286] (-) TimerEvent: {}
+[2.929424] (-) TimerEvent: {}
+[3.030545] (-) TimerEvent: {}
+[3.131665] (-) TimerEvent: {}
+[3.232832] (-) TimerEvent: {}
+[3.333909] (-) TimerEvent: {}
+[3.434946] (-) TimerEvent: {}
+[3.535797] (-) TimerEvent: {}
+[3.636716] (-) TimerEvent: {}
+[3.737635] (-) TimerEvent: {}
+[3.747754] (two_camera) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[3.812453] (two_camera) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[3.837812] (-) TimerEvent: {}
+[3.938534] (-) TimerEvent: {}
+[4.040037] (-) TimerEvent: {}
+[4.141591] (-) TimerEvent: {}
+[4.242571] (-) TimerEvent: {}
+[4.244719] (two_camera) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[4.272716] (two_camera) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[4.280366] (two_camera) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[4.285285] (two_camera) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[4.305383] (two_camera) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[4.342758] (-) TimerEvent: {}
+[4.443489] (-) TimerEvent: {}
+[4.544256] (-) TimerEvent: {}
+[4.645251] (-) TimerEvent: {}
+[4.684740] (two_camera) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[4.711969] (two_camera) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[4.713210] (two_camera) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[4.714754] (two_camera) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[4.737985] (two_camera) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[4.745394] (-) TimerEvent: {}
+[4.846069] (-) TimerEvent: {}
+[4.946976] (-) TimerEvent: {}
+[5.048225] (-) TimerEvent: {}
+[5.149606] (-) TimerEvent: {}
+[5.250469] (-) TimerEvent: {}
+[5.351478] (-) TimerEvent: {}
+[5.452728] (-) TimerEvent: {}
+[5.487787] (two_camera) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[5.552928] (-) TimerEvent: {}
+[5.653793] (-) TimerEvent: {}
+[5.755021] (-) TimerEvent: {}
+[5.855808] (-) TimerEvent: {}
+[5.956663] (-) TimerEvent: {}
+[6.057449] (-) TimerEvent: {}
+[6.085551] (two_camera) StdoutLine: {'line': b'-- Found rclcpp: 16.0.10 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[6.157631] (-) TimerEvent: {}
+[6.258358] (-) TimerEvent: {}
+[6.359120] (-) TimerEvent: {}
+[6.408489] (two_camera) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[6.449219] (two_camera) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[6.459309] (-) TimerEvent: {}
+[6.504216] (two_camera) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[6.559476] (-) TimerEvent: {}
+[6.573413] (two_camera) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[6.659660] (-) TimerEvent: {}
+[6.669876] (two_camera) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[6.759831] (-) TimerEvent: {}
+[6.860573] (-) TimerEvent: {}
+[6.939051] (two_camera) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[6.959583] (two_camera) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[6.960712] (-) TimerEvent: {}
+[7.061413] (-) TimerEvent: {}
+[7.162142] (-) TimerEvent: {}
+[7.263124] (-) TimerEvent: {}
+[7.363877] (-) TimerEvent: {}
+[7.464838] (-) TimerEvent: {}
+[7.567201] (-) TimerEvent: {}
+[7.578760] (two_camera) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[7.667372] (-) TimerEvent: {}
+[7.768110] (-) TimerEvent: {}
+[7.835523] (two_camera) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[7.868287] (-) TimerEvent: {}
+[7.968972] (-) TimerEvent: {}
+[8.069763] (-) TimerEvent: {}
+[8.170500] (-) TimerEvent: {}
+[8.247964] (two_camera) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[8.270633] (-) TimerEvent: {}
+[8.360062] (two_camera) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[8.370946] (-) TimerEvent: {}
+[8.471863] (-) TimerEvent: {}
+[8.572871] (-) TimerEvent: {}
+[8.673761] (-) TimerEvent: {}
+[8.759174] (two_camera) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[8.761623] (two_camera) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[8.773943] (-) TimerEvent: {}
+[8.874701] (-) TimerEvent: {}
+[8.975642] (-) TimerEvent: {}
+[9.076785] (-) TimerEvent: {}
+[9.127573] (two_camera) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[9.132852] (two_camera) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[9.177035] (-) TimerEvent: {}
+[9.278095] (-) TimerEvent: {}
+[9.378838] (-) TimerEvent: {}
+[9.421920] (two_camera) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[9.478996] (-) TimerEvent: {}
+[9.579804] (-) TimerEvent: {}
+[9.680799] (-) TimerEvent: {}
+[9.782422] (-) TimerEvent: {}
+[9.847490] (two_camera) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[9.848219] (two_camera) StdoutLine: {'line': b'-- Configured cppcheck include dirs: \n'}
+[9.848652] (two_camera) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[9.852699] (two_camera) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[9.861732] (two_camera) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[9.862330] (two_camera) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[9.864349] (two_camera) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[9.871119] (two_camera) StdoutLine: {'line': b'-- Configuring done\n'}
+[9.882594] (-) TimerEvent: {}
+[9.905914] (two_camera) StdoutLine: {'line': b'-- Generating done\n'}
+[9.912746] (two_camera) StdoutLine: {'line': b'-- Build files have been written to: /home/lamps-xe3/ros2_ws/build/two_camera\n'}
+[9.945621] (two_camera) CommandEnded: {'returncode': 0}
+[9.947507] (two_camera) JobProgress: {'identifier': 'two_camera', 'progress': 'build'}
+[9.950469] (two_camera) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/lamps-xe3/ros2_ws/build/two_camera', '--', '-j4', '-l4'], 'cwd': '/home/lamps-xe3/ros2_ws/build/two_camera', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'zh_CN:zh'), ('USER', 'lamps-xe3'), ('SSH_CLIENT', '192.168.1.110 54380 22'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/lamps-xe3/.vscode-server/cli/servers/Stable-fee1edb8d6d72a0ddff41e5f71a671c23ed924b9/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/lamps-xe3'), ('OLDPWD', '/home/lamps-xe3/ros2_ws/src/two_camera/src'), ('TERM_PROGRAM_VERSION', '1.92.2'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-3c527f2c-55fa-4a81-b773-ce69994e4ac9.sock'), ('ROS_PYTHON_VERSION', '3'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'lamps-xe3'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '202'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/lamps-xe3/.vscode-server/cli/servers/Stable-fee1edb8d6d72a0ddff41e5f71a671c23ed924b9/server/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'zh_CN.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/lamps-xe3/ros2_ws/build/two_camera'), ('SSH_CONNECTION', '192.168.1.110 54380 192.168.1.203 22'), ('XDG_DATA_DIRS', '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[9.982906] (-) TimerEvent: {}
+[10.083754] (-) TimerEvent: {}
+[10.111888] (two_camera) CommandEnded: {'returncode': 0}
+[10.183855] (-) TimerEvent: {}
+[10.212837] (two_camera) JobProgress: {'identifier': 'two_camera', 'progress': 'install'}
+[10.245784] (two_camera) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/lamps-xe3/ros2_ws/build/two_camera'], 'cwd': '/home/lamps-xe3/ros2_ws/build/two_camera', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'zh_CN:zh'), ('USER', 'lamps-xe3'), ('SSH_CLIENT', '192.168.1.110 54380 22'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/lamps-xe3/.vscode-server/cli/servers/Stable-fee1edb8d6d72a0ddff41e5f71a671c23ed924b9/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/lamps-xe3'), ('OLDPWD', '/home/lamps-xe3/ros2_ws/src/two_camera/src'), ('TERM_PROGRAM_VERSION', '1.92.2'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-3c527f2c-55fa-4a81-b773-ce69994e4ac9.sock'), ('ROS_PYTHON_VERSION', '3'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'lamps-xe3'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '202'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/lamps-xe3/.vscode-server/cli/servers/Stable-fee1edb8d6d72a0ddff41e5f71a671c23ed924b9/server/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'zh_CN.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/lamps-xe3/ros2_ws/build/two_camera'), ('SSH_CONNECTION', '192.168.1.110 54380 192.168.1.203 22'), ('XDG_DATA_DIRS', '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[10.278350] (two_camera) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[10.279616] (two_camera) StdoutLine: {'line': b'-- Installing: /home/lamps-xe3/ros2_ws/install/two_camera/share/ament_index/resource_index/package_run_dependencies/two_camera\n'}
+[10.281364] (two_camera) StdoutLine: {'line': b'-- Installing: /home/lamps-xe3/ros2_ws/install/two_camera/share/ament_index/resource_index/parent_prefix_path/two_camera\n'}
+[10.282874] (two_camera) StdoutLine: {'line': b'-- Installing: /home/lamps-xe3/ros2_ws/install/two_camera/share/two_camera/environment/ament_prefix_path.sh\n'}
+[10.283972] (two_camera) StdoutLine: {'line': b'-- Installing: /home/lamps-xe3/ros2_ws/install/two_camera/share/two_camera/environment/ament_prefix_path.dsv\n'}
+[10.284459] (-) TimerEvent: {}
+[10.285265] (two_camera) StdoutLine: {'line': b'-- Installing: /home/lamps-xe3/ros2_ws/install/two_camera/share/two_camera/environment/path.sh\n'}
+[10.286426] (two_camera) StdoutLine: {'line': b'-- Installing: /home/lamps-xe3/ros2_ws/install/two_camera/share/two_camera/environment/path.dsv\n'}
+[10.287476] (two_camera) StdoutLine: {'line': b'-- Installing: /home/lamps-xe3/ros2_ws/install/two_camera/share/two_camera/local_setup.bash\n'}
+[10.288558] (two_camera) StdoutLine: {'line': b'-- Installing: /home/lamps-xe3/ros2_ws/install/two_camera/share/two_camera/local_setup.sh\n'}
+[10.289759] (two_camera) StdoutLine: {'line': b'-- Installing: /home/lamps-xe3/ros2_ws/install/two_camera/share/two_camera/local_setup.zsh\n'}
+[10.291054] (two_camera) StdoutLine: {'line': b'-- Installing: /home/lamps-xe3/ros2_ws/install/two_camera/share/two_camera/local_setup.dsv\n'}
+[10.292319] (two_camera) StdoutLine: {'line': b'-- Installing: /home/lamps-xe3/ros2_ws/install/two_camera/share/two_camera/package.dsv\n'}
+[10.293805] (two_camera) StdoutLine: {'line': b'-- Installing: /home/lamps-xe3/ros2_ws/install/two_camera/share/ament_index/resource_index/packages/two_camera\n'}
+[10.295316] (two_camera) StdoutLine: {'line': b'-- Installing: /home/lamps-xe3/ros2_ws/install/two_camera/share/two_camera/cmake/two_cameraConfig.cmake\n'}
+[10.296282] (two_camera) StdoutLine: {'line': b'-- Installing: /home/lamps-xe3/ros2_ws/install/two_camera/share/two_camera/cmake/two_cameraConfig-version.cmake\n'}
+[10.297420] (two_camera) StdoutLine: {'line': b'-- Installing: /home/lamps-xe3/ros2_ws/install/two_camera/share/two_camera/package.xml\n'}
+[10.303217] (two_camera) CommandEnded: {'returncode': 0}
+[10.385200] (-) TimerEvent: {}
+[10.487149] (-) TimerEvent: {}
+[10.559913] (two_camera) JobEnded: {'identifier': 'two_camera', 'rc': 0}
+[10.562603] (-) EventReactorShutdown: {}
