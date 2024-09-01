@@ -18,9 +18,10 @@
 ## 部署方法
 - **前期准备：** 有一个已经烧录`ubuntu-22.04-preinstalled-desktop-arm64+raspi.img`的SD卡+树莓派4b，安装ros2、时间设置、SSH开启等，参考这一篇博客（我写的）：https://blog.csdn.net/weixin_61967846/article/details/139688989?spm=1001.2014.3001.5501
 - **代码部署：**
-  ``` # 新建文件夹，-p为-parent意思，如果该路径下有父目录不存在，则一并创建父目录
-mkdir -p ~/ros2_ws/src
-cd ~/ros2_ws/src
+  ```
+    # 新建文件夹，-p为-parent意思，如果该路径下有父目录不存在，则一并创建父目录
+    mkdir -p ~/ros2_ws/src
+    cd ~/ros2_ws/src
   ```
 
 
