@@ -16,9 +16,9 @@
 
     断开与服务器的连接，并删除保存在树莓派本地的图片，并关闭摄像头。关闭摄像头的实现是通过命令`fuser -k /dev/video0`查询并杀死对应摄像头的进程。此时可以看到之前滚动的日志结束了，表明摄像头关闭，这样可以避免摄像头持续打开，避免摄像头因为发热折寿[doge]。
 ## 部署方法
-- **前期准备：** 有一个已经烧录`ubuntu-22.04-preinstalled-desktop-arm64+raspi.img`的SD卡+树莓派4b，安装ros2、时间设置、SSH开启等，参考这一篇博客（我写的）：https://blog.csdn.net/weixin_61967846/article/details/139688989?spm=1001.2014.3001.5501
+- **前期准备：** 有一个已经烧录`ubuntu-22.04-preinstalled-desktop-arm64+raspi.img`的SD卡+树莓派4b，安装ros2、时间设置、SSH开启等，参考我写的这篇博客（建议收藏_嘿嘿）：https://blog.csdn.net/weixin_61967846/article/details/139688989?spm=1001.2014.3001.5501
 - **代码部署：**
-1. 新建文件夹，并安装pip3
+**1. 新建文件夹，并安装pip3**
   ```
     mkdir -p ~/ros2_ws/src
     cd ~/ros2_ws/src
@@ -27,7 +27,7 @@
     sudo rosdepc init
     rosdepc update
   ```
-2. 安装/更新依赖，安装colcon命令并编译
+**2. 安装/更新依赖，安装colcon命令并编译**
   ```
     cd ~/ros2_ws
     rosdepc install -i --from-path src --rosdistro humble -y
@@ -37,7 +37,7 @@
     cd ~/ros2_ws
     colcon build
   ```
-3. 安装two_camera和sub_synch工作包，创建launch文件夹（否则会编译报错）
+**3. 安装two_camera和sub_synch工作包，创建launch文件夹（否则会编译报错）**
   ```
     cd ~/ros2_ws/src
     ros2 pkg create two_camera --build-type ament_cmake --dependencies rclcpp --license Apache-2.0
@@ -49,7 +49,7 @@
     cd ~/ros2_ws
     colcon build
   ```
-4. 将`appsink1~3.cpp`和`time_synch.cpp`代码迁移过来
+**4. 将`appsink1~3.cpp`和`time_synch.cpp`代码迁移过来**
 - 在two_camera/src中执行`nano appsink1.cpp``nano appsink2.cpp``nano appsink3.cpp`等命令创建cpp文件，将已有代码复制到其中，**注意修改：** 节点名称以及发布话题的名称，否则会与之前的树莓派重名导致程序卡死
   ```
     // 33行左右，在定义节点和话题的时候，将10003改为对应的端口。端口号建议与用户名后缀数字相同
@@ -70,7 +70,150 @@
     // 36行左右，将保存路径中的用户名改为对应用户名，不是lamps-xe3
     this->declare_parameter("save_directory", "/home/lamps-xe3/ros2_ws/image");
   ```
+## 服务端程序
+```
+import socket
+import os
+import numpy as np
+import cv2
+import multiprocessing
+import queue
+import time
 
+# 创建全局 command_queues 字典
+command_queues = {}
+
+def handle_client(client_socket, address, port):
+    print(f"Connection from {address}:{port} has been established!")
+    
+    try:
+        while True:
+            # 从对应端口的队列中获取命令
+            if port in command_queues and not command_queues[port].empty():
+                command = command_queues[port].get()
+                if command.startswith("capture"):
+                    # 提取 image_count
+                    _, count = command.split()
+                    image_count = int(count)
+                    client_socket.sendall(command.encode())
+                    print(f"Capture command sent to client {address}:{port}. Image count: {image_count}")
+                elif command == "save":
+                    client_socket.sendall(command.encode())
+                    print(f"Save command sent to client {address}:{port}.")
+                    # 使用默认值或通过其他方式获取 image_count
+                    receive_images(client_socket, image_count)          
+                elif command == "shutdown":
+                    client_socket.sendall(command.encode())
+                    print(f"Shutting down connection to {address}:{port}.")
+                    client_socket.shutdown(socket.SHUT_RDWR)
+                    client_socket.close()
+                    break
+                else:
+                    print("Invalid command. Please enter 'capture', 'save', or 'shutdown'.")
+            else:
+                time.sleep(0.1)
+    except Exception as e:
+        print(f"An error occurred with client {address}:{port}: {e}")
+    finally:
+        client_socket.close()
+        print(f"Connection to {address}:{port} closed.")
+
+def receive_images(client_socket, image_count):
+    save_directory = "./received_images"
+    received_images = 0
+    
+    if not os.path.exists(save_directory):
+        os.makedirs(save_directory)
+
+    for _ in range(image_count):
+        try:
+            filename_length_buffer = client_socket.recv(4).decode().strip()
+            if not filename_length_buffer:
+                break
+            filename_length = int(filename_length_buffer)
+
+            file_name = client_socket.recv(filename_length).decode('utf-8')
+            print(f"Received file name: {file_name}")
+
+            length_buffer = client_socket.recv(16).decode().strip()
+            if not length_buffer:
+                break
+            img_size = int(length_buffer)
+
+            img_data = b''
+            while len(img_data) < img_size:
+                packet = client_socket.recv(1024)
+                if not packet:
+                    break
+                img_data += packet
+            if len(img_data) != img_size:
+                continue
+
+            img_array = np.frombuffer(img_data, dtype=np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+
+            if img is None:
+                continue
+
+            save_path = os.path.join(save_directory, file_name)
+            cv2.imwrite(save_path, img)
+            print(f"Saved image: {file_name}")
+            received_images += 1
+
+            client_socket.sendall(b'ok')
+        
+        except Exception as e:
+            print(f"Error: {e}")
+            client_socket.sendall(b'error')
+            break
+
+    print(f"Successfully received {received_images}/{image_count} images.")
+
+def start_server_for_port(port):
+    host = "0.0.0.0"
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    server_socket.bind((host, port))
+    server_socket.listen(5)
+    print(f"Server started, listening on {host}:{port}")
+
+    while True:
+        client_socket, addr = server_socket.accept()
+        process = multiprocessing.Process(target=handle_client, args=(client_socket, addr[0], port))
+        process.start()
+
+def start_server():
+    ports = [10001,10002,10003,10009]
+    processes = []
+    
+    # 初始化每个端口的命令队列
+    for port in ports:
+        command_queues[port] = multiprocessing.Queue()
+        process = multiprocessing.Process(target=start_server_for_port, args=(port,))
+        process.start()
+        processes.append(process)
+
+    while True:
+        command = input("Enter global command (e.g., 'capture 10' or 'save' or 'shutdown'): ")
+        if command.startswith("capture"):
+            for port in ports:
+                command_queues[port].put(command)
+        elif command == "save":
+            for port in ports:
+                command_queues[port].put(command)
+                # 等待当前端口的图片接收完成
+                while not command_queues[port].empty():
+                    time.sleep(0.1)
+        elif command == "shutdown":
+            for port in ports:
+                command_queues[port].put(command)
+            break
+        else:
+            print("Invalid command.")
+
+if __name__ == "__main__":
+    start_server()
+```
 
 
 
