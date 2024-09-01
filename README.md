@@ -1,2 +1,2 @@
 # Raspi_Capture
-Where a dream begins
+树莓派图采和同步系统说明
