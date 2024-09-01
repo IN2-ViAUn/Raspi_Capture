@@ -5,21 +5,14 @@
 ### appsink1~3
   当树莓派接收到capture N（N为正整数）指令时，在代码中会自动执行命令：ros2 run two_camera appsink1/2/3，这三个cpp文件分别对应三个摄像头，作用是发布三个摄像头的ros2节点信息，并带有时间戳方便同步。
 ### time_synch
-  树莓派主要代码，作用是查询服务器有没有发出指令，以及在接收到指令之后执行对应操作。
-  - 接收到“capture N”后：
+  树莓派主要代码，作用是查询服务器有没有发出指令，以及在接收到指令之后执行对应操作。当图采系统处于准备状态时，场地上的所有树莓派一直在执行这段代码，并且执行shutdown断开与服务器的连接后也不会结束进程。
+  - **接收到“capture N”后：**
   
-    启动订阅节点订阅三个摄像头的图像，并做同步。每当成功同步一次就执行触发函数`void syncCallback()`，2*2拼接三张图像（右下角为纯黑图像），保存拼接后的图像并以“端口号_三张图象的平均ros2时间戳.jpg”命名。
-    ```
-// 设置消息同步器，并将同步后的回调函数注册
-        sync_ = std::make_shared<message_filters::Synchronizer<ApproximateTime<sensor_msgs::msg::Image, sensor_msgs::msg::Image, sensor_msgs::msg::Image>>>(
-            ApproximateTime<sensor_msgs::msg::Image, sensor_msgs::msg::Image, sensor_msgs::msg::Image>(20),
-            sub1_, sub2_, sub3_);
-        sync_->registerCallback(&CameraSyncNode::syncCallback, this);
-    ```
-  - 接收到“save”后：
+    启动订阅节点订阅三个摄像头的图像，并做同步。每当成功同步一次就执行触发函数`void syncCallback()`，2*2拼接三张图像（右下角为纯黑图像），保存拼接后的图像并以“端口号_三张图象的平均ros2时间戳.jpg”命名。此时的树莓派日志会看到有`"[1]ROS 2 Time: %ld.%09ld\n", seconds, nanoseconds`的日志滚动，表明摄像头打开并发布消息。如果不想要日志滚动，在`appsink1~3.cpp`中注释掉对应的代码即可。
+  - **接收到“save”后：**
 
-    
-  - 接收到“shutdown”后：
+    按照之前保存的路径，遍历其中所有的图片并依次发送到服务器，先发送文件名长度和文件名，再编码并发送图片。
+  - **接收到“shutdown”后：**
 
-    
-  当图采系统处于准备状态时，树莓派一直在执行这段代码，并且执行shutdown断开与服务器的连接后也不会结束进程，也就是说树莓派一直
+    断开与服务器的连接，并删除保存在树莓派本地的图片，并关闭摄像头。关闭摄像头的实现是通过命令`fuser -k /dev/video0`查询并杀死对应摄像头的进程。此时可以看到之前滚动的日志结束了，表明摄像头关闭，这样可以避免摄像头持续打开，避免摄像头因为发热折寿[doge]。
+  
