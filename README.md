@@ -50,7 +50,7 @@
     colcon build
   ```
 4. 将`appsink1~3.cpp`和`time_synch.cpp`代码迁移过来
-   - 在two_camera/src中执行`nano appsink1.cpp``nano appsink2.cpp``nano appsink3.cpp`等命令创建cpp文件，将已有代码复制到其中，注意修改：节点名称以及发布话题的名称，否则会与之前的树莓派重名导致程序卡死
+- 在two_camera/src中执行`nano appsink1.cpp``nano appsink2.cpp``nano appsink3.cpp`等命令创建cpp文件，将已有代码复制到其中，**注意修改：** 节点名称以及发布话题的名称，否则会与之前的树莓派重名导致程序卡死
   ```
     // 33行左右，在定义节点和话题的时候，将10003改为对应的端口。端口号建议与用户名后缀数字相同
     auto node = rclcpp::Node::make_shared("camera1_10003_publisher");
@@ -58,7 +58,7 @@
     // 125行左右也要修改
     msg->header.frame_id = "camera1_10003_frame";
   ```
-   - 在sub_synch/src中执行`nano time_synch.cpp`命令创建cpp文件，将已有代码复制到其中，注意修改：
+- 在sub_synch/src中执行`nano time_synch.cpp`命令创建cpp文件，将已有代码复制到其中，**注意修改：**
   ```
     // 17行左右的树莓派通信端口
     #define server_port 10003           // 本树莓派与服务器通信的端口
