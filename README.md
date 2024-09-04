@@ -77,10 +77,10 @@
     sudo apt install libgtk-3-dev
   ```
 - **环境变量：** 首次执行时需要把环境变量写入bash文件
-```
-  echo "source ~/ros2_ws/install/setup.bash" >> ~/.bashrc
-  source ~/.bashrc
-```
+  ```
+    echo "source ~/ros2_ws/install/setup.bash" >> ~/.bashrc
+    source ~/.bashrc
+  ```
 
 ## 服务端程序
 - 这是一个python程序，复制代码即可运行，迁移时**注意修改**：112行左右的端口号，把场地上所有的树莓派端口都写在里面
