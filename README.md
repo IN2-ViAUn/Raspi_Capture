@@ -71,6 +71,17 @@
     // 36行左右，将保存路径中的用户名改为对应用户名，不是lamps-xe3
     this->declare_parameter("save_directory", "/home/lamps-xe3/ros2_ws/image");
   ```
+- **报错解决：** 在编译two_camera包的时候会提示缺少部分库，可执行如下命令安装：
+  ```
+    sudo apt-get install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
+    sudo apt install libgtk-3-dev
+  ```
+- **环境变量：** 首次执行时需要把环境变量写入bash文件
+```
+  echo "source ~/ros2_ws/install/setup.bash" >> ~/.bashrc
+  source ~/.bashrc
+```
+
 ## 服务端程序
 - 这是一个python程序，复制代码即可运行，迁移时**注意修改**：112行左右的端口号，把场地上所有的树莓派端口都写在里面
 - 当需要执行服务端程序的时候，如果出现无法访问摄像头的提示，则可能是没有进入系统，此时需要拿着显示器和键盘一个个解锁树莓派（我承认这是一个缺点）
